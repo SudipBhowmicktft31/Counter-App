@@ -31,7 +31,13 @@ class Wrapper extends Component {
     this.setState({ isRunning: false });
   }
   deleteCounterHandler() {
-    this.setState({ startForm: 0, value: 0, isRunning: false, isShow: false });
+    this.setState({
+      startForm: 0,
+      value: 0,
+      isRunning: false,
+      isShow: false,
+      isDisable: false,
+    });
   }
   componentDidMount() {
     this.timeout = setTimeout(() => {

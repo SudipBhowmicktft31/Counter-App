@@ -19,8 +19,8 @@
   color: aliceblue;
   font-weight: bolder;
   font-size: 50px;
-  font-family: 'Josefin Sans', sans-serif;
-
+  font-family: "Josefin Sans", sans-serif;
+  word-break: break-all;
 }
 @keyframes container-appear {
   from {
