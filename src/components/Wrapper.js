@@ -58,42 +58,47 @@ class Wrapper extends Component {
   render() {
     return (
       <div className={Styles.container}>
-        {this.state.isShowWelcome && <Welcome />}
-        <div className={Styles.wrapper}>
-          <div className={Styles.input}>
-            <label>
-              Enter A number
-              <input
-                type="number"
-                value={this.state.value}
-                onChange={this.inputChange.bind(this)}
-              />
-            </label>
+        {this.state.isShowWelcome ? (
+          <Welcome />
+        ) : (
+          <div>
+            <div className={Styles.wrapper}>
+              <div className={Styles.input}>
+                <label>
+                  Enter A number
+                  <input
+                    type="number"
+                    value={this.state.value}
+                    onChange={this.inputChange.bind(this)}
+                  />
+                </label>
+              </div>
+              <div className={Styles.button}>
+                <button
+                  className={Styles.start}
+                  onClick={this.startCounterHandler.bind(this)}
+                >
+                  Start
+                </button>
+                <button
+                  className={Styles.stop}
+                  onClick={this.stopCounterHandler.bind(this)}
+                  disabled={!this.state.isDisable}
+                >
+                  Stop
+                </button>
+                <button
+                  className={Styles.delete}
+                  onClick={this.deleteCounterHandler.bind(this)}
+                  disabled={!this.state.isDisable}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+            {this.state.isShow && <Counter startForm={this.state.startForm} />}
           </div>
-          <div className={Styles.button}>
-            <button
-              className={Styles.start}
-              onClick={this.startCounterHandler.bind(this)}
-            >
-              Start
-            </button>
-            <button
-              className={Styles.stop}
-              onClick={this.stopCounterHandler.bind(this)}
-              disabled={!this.state.isDisable}
-            >
-              Stop
-            </button>
-            <button
-              className={Styles.delete}
-              onClick={this.deleteCounterHandler.bind(this)}
-              disabled={!this.state.isDisable}
-            >
-              Delete
-            </button>
-          </div>
-        </div>
-        {this.state.isShow && <Counter startForm={this.state.startForm} />}
+        )}
       </div>
     );
   }
